@@ -1,7 +1,7 @@
 {-@ LIQUID "--reflection" @-}
 {-@ LIQUID "--ple"        @-}
 
-module ListProofs (app, assoc, len, lenPlus) where
+module ListProofs (app, assoc, len, lenPlus, rev, revRev) where
 
 import ProofCombinators
 
@@ -37,3 +37,45 @@ len (_:xs) = 1 + len xs
 lenPlus :: [a] -> [a] -> Proof
 lenPlus [] _ = ()
 lenPlus (_:xs) ys = lenPlus xs ys
+
+{-@ rev :: xs:[a] -> [a] @-}
+{-@ reflect rev @-}
+rev :: [a] -> [a]
+rev []     = []
+rev (x:xs) = app (rev xs) [x]
+
+{-@ appNil :: xs:[a] -> { app xs [] == xs } @-}
+appNil :: [a] -> Proof
+appNil []     = ()
+appNil (_:xs) = appNil xs
+
+{-@ revApp :: xs:[a] -> ys:[a] -> { rev (app xs ys) == app (rev ys) (rev xs) } @-}
+revApp :: [a] -> [a] -> Proof
+-- revApp [] ys = appNil (rev ys)
+revApp [] ys = 
+      rev (app [] ys)
+  ==. rev ys            ? appNil (rev ys)
+  ==. app (rev ys) []
+  ==. app (rev ys) (rev [])
+  *** qed
+-- revApp (x:xs) ys = [revApp xs ys, assoc (rev ys) (rev xs) (rev [x])] *** qed
+revApp (x:xs) ys =
+      rev (app (x:xs) ys)
+  ==. rev (x : app xs ys)
+  ==. app (rev (app xs ys)) [x] ? revApp xs ys
+  ==. app (app (rev ys) (rev xs)) [x]
+  ==. app (app (rev ys) (rev xs)) (rev [x]) ? assoc (rev ys) (rev xs) (rev [x])
+  ==. app (rev ys) (app (rev xs) (rev [x]))
+  *** qed
+
+{-@ revRev :: xs:[a] -> { rev (rev xs) == xs } @-}
+revRev :: [a] -> Proof
+revRev []     = ()
+-- revRev (x:xs) = [revRev xs, revApp (rev xs) [x]] *** qed
+revRev (x:xs) = 
+        rev (rev (x:xs))
+    ==. rev (app (rev xs) [x]) ? revApp (rev xs) [x]
+    ==. app (rev [x]) (rev (rev xs)) ? revRev xs
+    ==. app [x] xs
+    ==. x : xs
+    *** qed
