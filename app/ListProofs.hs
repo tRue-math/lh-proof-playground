@@ -1,7 +1,7 @@
 {-@ LIQUID "--reflection" @-}
 {-@ LIQUID "--ple"        @-}
 
-module ListProofs (app, assoc) where
+module ListProofs (app, assoc, len, lenPlus) where
 
 import ProofCombinators
 
@@ -26,3 +26,14 @@ assoc (x:xs) ys zs =
   ==. x : app xs (app ys zs)
   ==. app (x:xs) (app ys zs)
   *** qed
+
+{-@ len :: xs:[a] -> Nat @-}
+{-@ reflect len @-}
+len :: [a] -> Int
+len []     = 0
+len (_:xs) = 1 + len xs
+
+{-@ lenPlus :: xs:[a] -> ys:[a] -> { len (app xs ys) == len xs + len ys } @-}
+lenPlus :: [a] -> [a] -> Proof
+lenPlus [] _ = ()
+lenPlus (_:xs) ys = lenPlus xs ys
