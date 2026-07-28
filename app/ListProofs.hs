@@ -22,7 +22,7 @@ assoc [] ys zs =
 assoc (x:xs) ys zs =
       app (app (x:xs) ys) zs
   ==. app (x : app xs ys) zs
-  ==. x : app (app xs ys) zs
-  ==. x : app xs (app ys zs) ? assoc xs ys zs
+  ==. x : app (app xs ys) zs ? assoc xs ys zs
+  ==. x : app xs (app ys zs)
   ==. app (x:xs) (app ys zs)
   *** qed
