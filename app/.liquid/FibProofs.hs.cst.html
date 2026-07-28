@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>/home/true/IS/lh-proof-playground/app/FibProofs.hs</title>
+</head>
+<head>
+<link type='text/css' rel='stylesheet' href='liquid.css' />
+</head>
+
+<body>
+<hr>
+Put mouse over identifiers to see inferred types
+<pre><span class=hs-linenum> 1: </span><a class=annot href="#"><span class=annottext>{VV##732 : GHC.Types.Module | $k_##733}</span><span class='hs-keyword'>{-@</span></a> <span class='hs-conid'>LIQUID</span> <span class='hs-str'>"--reflection"</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 2: </span><span class='hs-keyword'>{-@</span> <span class='hs-conid'>LIQUID</span> <span class='hs-str'>"--ple"</span>        <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 3: </span>
+<span class=hs-linenum> 4: </span><span class='hs-keyword'>module</span> <span class='hs-conid'>FibProofs</span> <span class='hs-layout'>(</span><span class='hs-varid'>fibTwo</span><span class='hs-layout'>,</span> <span class='hs-varid'>fibTen</span><span class='hs-layout'>)</span> <span class='hs-keyword'>where</span>
+<span class=hs-linenum> 5: </span>
+<span class=hs-linenum> 6: </span><span class='hs-keyword'>import</span> <span class='hs-conid'>ProofCombinators</span>
+<span class=hs-linenum> 7: </span>
+<span class=hs-linenum> 8: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>fib</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Nat</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Nat</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 9: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>reflect</span> <span class='hs-varid'>fib</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>10: </span><span class='hs-definition'>fib</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Int</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>Int</span>
+<span class=hs-linenum>11: </span><a class=annot href="#"><span class=annottext>lq_tmp$x##407:{VV##0 : GHC.Types.Int | VV##0 &gt;= 0} -&gt; {VV##0 : GHC.Types.Int | VV##0 &gt;= 0}</span><span class='hs-definition'>fib</span></a> <span class='hs-num'>0</span> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##507 : GHC.Prim.Int# | lq_tmp$x##507 == 0}</span><span class='hs-num'>0</span></a>
+<span class=hs-linenum>12: </span><span class='hs-definition'>fib</span> <span class='hs-num'>1</span> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##516 : GHC.Prim.Int# | lq_tmp$x##516 == 1}</span><span class='hs-num'>1</span></a>
+<span class=hs-linenum>13: </span><span class='hs-definition'>fib</span> <span class='hs-varid'>n</span> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>{VV##0 : GHC.Types.Int | VV##0 == FibProofs.fib lq_anf$##7205759403792805694##d394
+                         &amp;&amp; VV##0 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##446 : GHC.Types.Int | lq_tmp$x##446 == GHC.Num.- ds_d38u lq_anf$##7205759403792805693##d393
+                                 &amp;&amp; lq_tmp$x##446 == ds_d38u - lq_anf$##7205759403792805693##d393}</span><span class='hs-layout'>(</span></a><a class=annot href="#"><span class=annottext>{lq_tmp$x##449 : GHC.Types.Int | lq_tmp$x##449 == ds_d38u
+                                 &amp;&amp; lq_tmp$x##449 &gt;= 0}</span><span class='hs-varid'>n</span></a> <span class='hs-comment'>-</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##430 : GHC.Types.Int | lq_tmp$x##430 == GHC.Types.I# lq_anf$##7205759403792805692##d392
+                                 &amp;&amp; lq_tmp$x##430 == (lq_anf$##7205759403792805692##d392 : int)}</span><span class='hs-num'>1</span></a><span class='hs-layout'>)</span> <span class='hs-varop'>+</span> <a class=annot href="#"><span class=annottext>{VV##0 : GHC.Types.Int | VV##0 == FibProofs.fib lq_anf$##7205759403792805698##d398
+                         &amp;&amp; VV##0 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##477 : GHC.Types.Int | lq_tmp$x##477 == GHC.Num.- ds_d38u lq_anf$##7205759403792805697##d397
+                                 &amp;&amp; lq_tmp$x##477 == ds_d38u - lq_anf$##7205759403792805697##d397}</span><span class='hs-layout'>(</span></a><a class=annot href="#"><span class=annottext>{lq_tmp$x##480 : GHC.Types.Int | lq_tmp$x##480 == ds_d38u
+                                 &amp;&amp; lq_tmp$x##480 &gt;= 0}</span><span class='hs-varid'>n</span></a> <span class='hs-comment'>-</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##461 : GHC.Types.Int | lq_tmp$x##461 == GHC.Types.I# lq_anf$##7205759403792805696##d396
+                                 &amp;&amp; lq_tmp$x##461 == (lq_anf$##7205759403792805696##d396 : int)}</span><span class='hs-num'>2</span></a><span class='hs-layout'>)</span>
+<span class=hs-linenum>14: </span>
+<span class=hs-linenum>15: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>fibTwo</span> <span class='hs-keyglyph'>::</span> <span class='hs-keyword'>{ fib 2 == 1 }</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>16: </span><span class='hs-definition'>fibTwo</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Proof</span>
+<span class=hs-linenum>17: </span><a class=annot href="#"><span class=annottext>{VV : () | FibProofs.fib 2 == 1}</span><span class='hs-definition'>fibTwo</span></a> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##532 : GHC.Types.Int | lq_tmp$x##532 == FibProofs.fib lq_anf$##7205759403792805738##d39M
+                                 &amp;&amp; lq_tmp$x##532 == (if 0 == lq_anf$##7205759403792805738##d39M then 0 else (if 1 == lq_anf$##7205759403792805738##d39M then 1 else FibProofs.fib (lq_anf$##7205759403792805738##d39M - 1) + FibProofs.fib (lq_anf$##7205759403792805738##d39M - 2)))
+                                 &amp;&amp; lq_tmp$x##532 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##526 : GHC.Types.Int | lq_tmp$x##526 == GHC.Types.I# lq_anf$##7205759403792805737##d39L
+                                 &amp;&amp; lq_tmp$x##526 == (lq_anf$##7205759403792805737##d39L : int)}</span><span class='hs-num'>2</span></a>
+<span class=hs-linenum>18: </span>    <span class='hs-varop'>==.</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##571 : GHC.Types.Int | lq_tmp$x##571 == FibProofs.fib lq_anf$##7205759403792805744##d39S
+                                 &amp;&amp; lq_tmp$x##571 == (if 0 == lq_anf$##7205759403792805744##d39S then 0 else (if 1 == lq_anf$##7205759403792805744##d39S then 1 else FibProofs.fib (lq_anf$##7205759403792805744##d39S - 1) + FibProofs.fib (lq_anf$##7205759403792805744##d39S - 2)))
+                                 &amp;&amp; lq_tmp$x##571 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##564 : GHC.Types.Int | lq_tmp$x##564 == GHC.Num.+ lq_anf$##7205759403792805741##d39P lq_anf$##7205759403792805743##d39R
+                                 &amp;&amp; lq_tmp$x##564 == lq_anf$##7205759403792805741##d39P + lq_anf$##7205759403792805743##d39R}</span><span class='hs-layout'>(</span></a><a class=annot href="#"><span class=annottext>{lq_tmp$x##540 : GHC.Types.Int | lq_tmp$x##540 == GHC.Types.I# lq_anf$##7205759403792805740##d39O
+                                 &amp;&amp; lq_tmp$x##540 == (lq_anf$##7205759403792805740##d39O : int)}</span><span class='hs-num'>1</span></a> <span class='hs-varop'>+</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##548 : GHC.Types.Int | lq_tmp$x##548 == GHC.Types.I# lq_anf$##7205759403792805742##d39Q
+                                 &amp;&amp; lq_tmp$x##548 == (lq_anf$##7205759403792805742##d39Q : int)}</span><span class='hs-num'>1</span></a><span class='hs-layout'>)</span>
+<span class=hs-linenum>19: </span>    <span class='hs-varop'>==.</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##598 : GHC.Types.Int | lq_tmp$x##598 == FibProofs.fib lq_anf$##7205759403792805748##d39W
+                                 &amp;&amp; lq_tmp$x##598 == (if 0 == lq_anf$##7205759403792805748##d39W then 0 else (if 1 == lq_anf$##7205759403792805748##d39W then 1 else FibProofs.fib (lq_anf$##7205759403792805748##d39W - 1) + FibProofs.fib (lq_anf$##7205759403792805748##d39W - 2)))
+                                 &amp;&amp; lq_tmp$x##598 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##592 : GHC.Types.Int | lq_tmp$x##592 == GHC.Types.I# lq_anf$##7205759403792805747##d39V
+                                 &amp;&amp; lq_tmp$x##592 == (lq_anf$##7205759403792805747##d39V : int)}</span><span class='hs-num'>1</span></a> <span class='hs-varop'>+</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##612 : GHC.Types.Int | lq_tmp$x##612 == FibProofs.fib lq_anf$##7205759403792805751##d39Z
+                                 &amp;&amp; lq_tmp$x##612 == (if 0 == lq_anf$##7205759403792805751##d39Z then 0 else (if 1 == lq_anf$##7205759403792805751##d39Z then 1 else FibProofs.fib (lq_anf$##7205759403792805751##d39Z - 1) + FibProofs.fib (lq_anf$##7205759403792805751##d39Z - 2)))
+                                 &amp;&amp; lq_tmp$x##612 &gt;= 0}</span><span class='hs-varid'>fib</span></a> <a class=annot href="#"><span class=annottext>{lq_tmp$x##606 : GHC.Types.Int | lq_tmp$x##606 == GHC.Types.I# lq_anf$##7205759403792805750##d39Y
+                                 &amp;&amp; lq_tmp$x##606 == (lq_anf$##7205759403792805750##d39Y : int)}</span><span class='hs-num'>0</span></a>
+<span class=hs-linenum>20: </span>    <span class='hs-varop'>==.</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##650 : GHC.Types.Int | lq_tmp$x##650 == GHC.Types.I# lq_anf$##7205759403792805755##d3a3
+                                 &amp;&amp; lq_tmp$x##650 == (lq_anf$##7205759403792805755##d3a3 : int)}</span><span class='hs-num'>1</span></a> <span class='hs-varop'>+</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##658 : GHC.Types.Int | lq_tmp$x##658 == GHC.Types.I# lq_anf$##7205759403792805757##d3a5
+                                 &amp;&amp; lq_tmp$x##658 == (lq_anf$##7205759403792805757##d3a5 : int)}</span><span class='hs-num'>0</span></a>
+<span class=hs-linenum>21: </span>    <span class='hs-varop'>==.</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##696 : GHC.Types.Int | lq_tmp$x##696 == GHC.Types.I# lq_anf$##7205759403792805761##d3a9
+                                 &amp;&amp; lq_tmp$x##696 == (lq_anf$##7205759403792805761##d3a9 : int)}</span><span class='hs-num'>1</span></a>
+<span class=hs-linenum>22: </span>    <span class='hs-varop'>***</span> <a class=annot href="#"><span class=annottext>{lq_tmp$x##728 : () | lq_tmp$x##728 == ProofCombinators.qed}</span><span class='hs-varid'>qed</span></a>
+<span class=hs-linenum>23: </span>
+<span class=hs-linenum>24: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>fibTen</span> <span class='hs-keyglyph'>::</span> <span class='hs-keyword'>{ fib 10 == 55 }</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>25: </span><span class='hs-definition'>fibTen</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Proof</span>
+<span class=hs-linenum>26: </span><a class=annot href="#"><span class=annottext>{VV : () | FibProofs.fib 10 == 55}</span><span class='hs-definition'>fibTen</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>()</span></pre>
+</body>
+</html>

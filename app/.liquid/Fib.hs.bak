@@ -1,0 +1,53 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
+{-@ LIQUID "--reflection" @-}
+{-@ LIQUID "--ple"        @-}
+
+module Fib (
+    Proof,
+    fib,
+    fibTwo,
+    fibTen
+) where
+
+{-@ type Proof = () @-}
+type Proof = ()
+
+-- 「==.」は、左辺(x)と右辺(y)が「等しい」ことをSMTソルバに確認させ、
+-- 確認できたらそのまま左辺(x)を次に渡す、という演算子です。
+infixl 3 ==.
+{-@ (==.) :: x:a -> y:{a | x == y} -> {v:a | v == x} @-}
+(==.) :: a -> a -> a
+x ==. _ = x
+
+-- 「***」は、証明の連鎖を締めくくるための単なる接続詞です。
+infixr 2 ***
+{-@ (***) :: a -> b -> b @-}
+(***) :: a -> b -> b
+_ *** y = y
+
+qed :: Proof
+qed = ()
+
+-- 1. 関数の定義とReflection
+{-@ fib:: Nat -> Nat @-}
+{-@ reflect fib @-}
+fib :: Int -> Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)
+
+-- 2. 定理の型シグネチャ（証明したいこと）
+{-@ fibTwo :: () -> { fib 2 == 1 } @-}
+fibTwo :: () -> Proof
+fibTwo _ =
+      fib 2
+  ==. fib (2 - 1) + fib (2 - 2)
+  ==. fib 1 + fib 0
+  ==. 1 + 0
+  ==. 1
+  *** qed
+
+{-@ fibTen :: () -> { fib 10 == 55 } @-}
+fibTen :: () -> ()
+fibTen _ = ()
