@@ -44,7 +44,7 @@ fibIncreaseShort n m
         let fibUpShort :: Int -> Proof
             fibUpShort 0 = ()
             fibUpShort 1 = ()
-            fibUpShort n' = 0 <= fib (n' - 1) *** qed
+            fibUpShort n' = fib (n' - 1) *** qed
         in
         [fibIncreaseShort n (m - 1), fibUpShort (m - 1)] *** qed
     | otherwise = error "unreachable: n <= m is guaranteed by LH"
