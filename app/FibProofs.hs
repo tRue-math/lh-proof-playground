@@ -24,3 +24,8 @@ fibTwo = fib 2
 {-@ fibTen :: { fib 10 == 55 } @-}
 fibTen :: Proof
 fibTen = ()
+
+-- it does not terminate in a reasonable time, so we comment it out for now
+-- {-@ fibHundred :: { fib 100 == 354224848179261915075 } @-}
+-- fibHundred :: Proof
+-- fibHundred = ()
