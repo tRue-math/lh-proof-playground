@@ -3,6 +3,7 @@
 module ProofCombinators 
   ( Proof
   , (==.)
+  , (<=.)
   , (***)
   , (?)
   , qed
@@ -14,6 +15,11 @@ infixl 3 ==.
 {-@ (==.) :: x:a -> y:{a | x == y} -> {v:a | v == x} @-}
 (==.) :: a -> a -> a
 x ==. _ = x
+
+infixl 3 <=.
+{-@ (<=.) :: x:a -> y:{a | x <= y} -> {v:a | v <= x} @-}
+(<=.) :: a -> a -> a
+x <=. _ = x
 
 infixl 3 ?
 {-@ (?) :: x:a -> y:b -> {v:a | v == x} @-}
